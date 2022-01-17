@@ -7,31 +7,33 @@ import { FaceSnap } from './model/face-snap.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  mySnap!: FaceSnap
-  myOtherSnap!: FaceSnap
-  mLastSnap!: FaceSnap
+  faceSnaps!: FaceSnap[];
 
   ngOnInit() {
-    this.mySnap = new FaceSnap(
-      'Archibald',
-      'Mon meilleur ami depuis tout petit !',
-      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
-      new Date(),
-      0
-    );
-    this.myOtherSnap = new FaceSnap(
-      'Halo : Reach',
-      'Ce jeu est vraiment génial !',
-      'https://store-images.s-microsoft.com/image/apps.11841.13712233546831125.9f4bcdfb-0193-4de3-ae20-7f6d3ffe2658.527e1272-f3bb-4917-96fa-15c35316e1e5?q=90&w=480&h=270',
-      new Date(),
-      0
-    );
-    this.mLastSnap = new FaceSnap(
-      'Hello there',
-      'General Kenobi !',
-      'https://c.tenor.com/DSG9ZID25nsAAAAC/hello-there-general-kenobi.gif',
-      new Date(),
-      0
-    );
+    this.faceSnaps = [
+      {
+        title: 'Archibald',
+        description: 'Mon meilleur ami depuis tout petit !',
+        imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+        createdDate: new Date(),
+        snaps: 0,
+        location: 'Paris'
+      },
+      {
+        title: 'Three Rock Mountain',
+        description: 'Un endroit magnifique pour les randonnées.',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
+        createdDate: new Date(),
+        snaps: 6,
+        location: 'la montagne'
+      },
+      {
+        title: 'Un bon repas',
+        description: 'Mmmh que c\'est bon !',
+        imageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
+        createdDate: new Date(),
+        snaps: 0
+      }
+    ];
   }
 }
