@@ -1,25 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { FaceSnap } from './model/face-snap.model';
+import { Injectable } from '@angular/core';
+import { FaceSnap } from '../model/face-snap.model';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class AppComponent implements OnInit {
-  faceSnaps!: FaceSnap[];
-
-  ngOnInit() {
-    this.faceSnaps = [
-      {
+export class FaceSnapsService {
+  faceSnaps: FaceSnap[] = [
+    {
         id: 1,
         title: 'Archibald',
         description: 'Mon meilleur ami depuis tout petit !',
         imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
         createdDate: new Date(),
-        snaps: 160,
+        snaps: 47,
         location: 'Paris'
-      },
+    },
       {
         id: 2,
         title: 'Three Rock Mountain',
@@ -37,6 +32,18 @@ export class AppComponent implements OnInit {
         createdDate: new Date(),
         snaps: 0
       }
-    ];
+  ];
+
+  getAllFaceSnaps() : FaceSnap [] {
+      return this.faceSnaps;
   }
+
+  snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): void {
+    const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+    if (faceSnap) {
+        faceSnap.snaps++;
+    } else {
+        throw new Error('FaceSnap not found!');
+    }
+}
 }
