@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponentComponent } from './landing-page-component/landing-page-component.component';
 import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'}
