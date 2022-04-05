@@ -36,4 +36,7 @@ jobs:
         # Github access token token used to deploy on gh_pages. You can find it on Github.
         github_access_token: ${{ secrets.TOKEN }}
         # base href for the app
-        # base_href: # optional, default is /
+        base_href: /snapface
+        # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
+        angular_dist_build_folder: dist/snapface/
+        
